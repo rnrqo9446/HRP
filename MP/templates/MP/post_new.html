@@ -1,0 +1,14 @@
+{% extends "MP/base.html" %}
+
+{% block content %}
+
+    <h1>그래!! 너의 꿈을 펼쳐보는거야!!!</h1>
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-warning">저장하자!!!</button>
+
+    </form>
+
+{% endblock %}

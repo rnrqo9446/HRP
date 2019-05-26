@@ -1,0 +1,43 @@
+h1{
+    font-weight: bold;
+    text-align: center;
+    color: gold;
+    font-family: 'Stylish', sans-serif;
+
+
+}
+
+h2{
+    color: navy;
+    font-family: 'Stylish', sans-serif;
+    font-weight: normal;
+}
+
+
+h4{
+    color:goldenrod;
+    font-family: 'Cute Font', cursive;
+}
+
+p{
+    color: brown;
+    font-family: 'Gaegu', cursive;
+}
+
+a{
+    color: coral;
+    font-family: 'Hi Melody', cursive;
+}
+
+div{
+    color: navy;
+    font-family: 'Stylish', sans-serif;
+}
+
+.mainlinks {
+    color: coral;
+    font-family: 'Hi Melody', cursive;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
