@@ -2,17 +2,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.utils import timezone
 from .forms import PostForm, CommentForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
     posts = Post.objects
     return render(request, 'MP/home.html', {'posts':posts})
-
+    
+@login_required
 def detail(request, post_id):
     post_detail = get_object_or_404(Post, pk=post_id)
     form = CommentForm()
     return render(request, 'MP/detail.html', {'post': post_detail, 'form':form,})
 
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -25,7 +28,8 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'MP/post_new.html', {'form':form})
-        
+
+@login_required
 def post_edit(request, post_id):
     post = get_object_or_404(Post, pk = post_id)
     if request.method == "POST":
@@ -40,11 +44,13 @@ def post_edit(request, post_id):
         form = PostForm(instance=post)
     return render(request, 'MP/post_edit.html', {'form':form})
 
+@login_required
 def post_delete(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
     return redirect('home')
 
+@login_required
 def add_comment(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     if request.method == "POST":
@@ -55,6 +61,7 @@ def add_comment(request, post_id):
             comment.save()
     return redirect('detail', post_id=post.pk)
 
+@login_required
 def comment_delete(request, comment_id):
     comment = get_object_or_404(Comment, pk = comment_id)
     post = comment.post

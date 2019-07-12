@@ -41,3 +41,17 @@ div{
     margin-left: 10px;
     margin-right: 10px;
 }
+
+#Yes {
+    position: relative;
+    color: blue;
+    text-align: center;
+    font-family: 'Stylish', sans-serif;
+}
+
+#Yes2 {
+    position: relative;
+    color:rebeccapurple;
+    text-align: center;
+    font-family: 'Stylish', sans-serif;
+}

@@ -1,12 +1,13 @@
 {% extends "MP/base.html" %}
 
 {% block content %}
-    <h1>일하고 싶은 대학생이여!!! 두려워하지 말아라!!!</h1>
+
+    
     {% for post in posts.all %}
         <div class="container">
-            <h2 class="bg-warning"><a href = "{% url 'detail' post.id %}">{{post.title}}</a></h2>
+            <h2 class="bg-warning"><a href = "{% url 'detail' post.id %}">{{ post.title | truncatechars_html:11}}</a></h2>
             <p class="bg-danger">{{post.created_date}}</p>
-            <p class="bg-danger">{{post.text}}</p>
+            <p class="bg-danger">{{ post.text | truncatechars_html:11}}</p>
         </div>
     {% endfor %}
 
